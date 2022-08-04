@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BirdController : MonoBehaviour
 {
+    [SerializeField] float launchForce= 500f;
+
     Vector2 _startPosition;
     Rigidbody2D myRb;
+    SpriteRenderer mySprite;
 
     private void Awake()
     {
         myRb = GetComponent<Rigidbody2D>();
+        mySprite = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -20,19 +24,19 @@ public class BirdController : MonoBehaviour
 
     void OnMouseDown()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        mySprite.color = Color.red;
 
     }
 
     void OnMouseUp()
     {
-        var currentPosition =myRb.position;
+        Vector2 currentPosition = myRb.position;
         Vector2 direction = _startPosition - currentPosition; 
         direction.Normalize();
 
         myRb.isKinematic = false;
-        myRb.AddForce(direction * 500);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        myRb.AddForce(direction * launchForce);
+        mySprite.color = Color.white; 
     }
 
     void OnMouseDrag()
@@ -42,11 +46,22 @@ public class BirdController : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+  
     void Update()
     {
         
     }
 
-    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        StartCoroutine(DelayReset());
+       
+    }
+    IEnumerator DelayReset()
+    {
+        yield return new WaitForSeconds(2);
+        myRb.position = _startPosition;
+        myRb.isKinematic = true;
+        myRb.velocity = Vector2.zero;
+    }
 }
