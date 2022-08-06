@@ -2,71 +2,116 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class MonsterController : MonoBehaviour
 {
-   
+
+    public static MonsterController instance;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private float maxHeath = 5;
     [SerializeField] private float damageMin = 0.5f;
     [SerializeField] private float damageMax = 1.5f;
     [SerializeField] Sprite deadSprite;
-    [SerializeField] ParticleSystem hitParticle;
+    [SerializeField] ParticleSystem hitParticle;  
+    [SerializeField] public float currentHealth;
+    [SerializeField] public bool hasDied;
+    public int numOfMonsters;
+    public GameObject[] monsters;
     SpriteRenderer mySprite;
-    
-   [SerializeField] private float currentHeath;
 
     private const string BIRD = "Bird";
     private const string CRATE = "Crate";
+   
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         mySprite = GetComponent<SpriteRenderer>();
+
+    }
+    private void OnEnable()
+    {
+        monsters = GameObject.FindGameObjectsWithTag("Monster");
     }
 
     void Start()
     {
-        currentHeath = maxHeath;
-        healthBar.UpdateHealthBar(maxHeath, currentHeath);
+        currentHealth = maxHeath;
+        healthBar.UpdateHealthBar(maxHeath, currentHealth);
+        numOfMonsters = monsters.Length;
+      
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-      
-        //if (collision.gameObject.CompareTag(BIRD))
-        //{
-            
-        //    Die();
-          
-        //}
 
-        if (collision.gameObject.CompareTag(CRATE))
+
+        if (collision.gameObject.CompareTag(CRATE) || collision.gameObject.CompareTag(BIRD))
         {
-           
-               // currentHeath -= Random.Range(damageMin, damageMax);
-                currentHeath -= damageMin;
 
-           
+            // currentHeath -= Random.Range(damageMin, damageMax);
+            currentHealth -= damageMin;
 
-            if (currentHeath <= 0)
+            if (hasDied == true)
             {
-                currentHeath = 0;
-                Debug.Log("current health below zero");
-                Die();
+                if (currentHealth < 0)
+                {
+                    currentHealth = 0;
+                    numOfMonsters--;
+                    Debug.Log("number of monsters" + numOfMonsters);
+                    StartCoroutine(Die());
+                    hasDied = false;
+                }
+                if (currentHealth == 0 || currentHealth > 0)
+                {
+                    healthBar.UpdateHealthBar(maxHeath, currentHealth);
+                }
             }
-            if(currentHeath == 0 || currentHeath > 0)
-            {
-                healthBar.UpdateHealthBar(maxHeath, currentHeath);
-            }
+
+
         }
     }
 
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag(CRATE))
+    //    {
+    //        // currentHeath -= Random.Range(damageMin, damageMax);
+    //        currentHealth -= damageMin;
+
+    //        if (hasDied == true)
+    //        {
+    //            if (currentHealth < 0)
+    //            {
+    //                currentHealth = 0;
+    //                numOfMonsters--;
+    //                Debug.Log("number of monsters" + numOfMonsters);
+    //                Die();
+    //                hasDied = false;
+    //            }
+    //            if (currentHealth == 0 || currentHealth > 0)
+    //            {
+    //                healthBar.UpdateHealthBar(maxHeath, currentHealth);
+    //            }
+    //        }
+    //    }
+    //}
 
 
-    void Die()
+     IEnumerator Die()
     {
+        hasDied = true;
         mySprite.sprite = deadSprite;
         hitParticle.Play();
+        yield return new WaitForSeconds(1);
+        gameObject.SetActive(false);
       
+
     }
 
 
