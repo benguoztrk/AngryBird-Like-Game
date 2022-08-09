@@ -37,6 +37,8 @@ public class BirdController : MonoBehaviour
 
         myRb.isKinematic = false;
         myRb.AddForce(direction * launchForce);
+       
+       // myRb.velocity = direction * launchForce;
         mySprite.color = Color.white; 
     }
 

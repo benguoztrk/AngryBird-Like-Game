@@ -38,7 +38,7 @@ public class LevelController : MonoBehaviour
    
     void Update()
     {
-       StartCoroutine(ActivateLevelFinishCanvas());
+       StartCoroutine(ActivateCanvas());
            
     }
 
@@ -73,7 +73,7 @@ public class LevelController : MonoBehaviour
 
     }
 
-    IEnumerator ActivateLevelFinishCanvas()
+    IEnumerator ActivateCanvas()
     {
 
         if (IsMonstersAllDead())

@@ -10655,7 +10655,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10732,7 +10731,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.812891
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10756,26 +10755,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8751554, y: 0.3759215, z: -12.5}
+  m_LocalPosition: {x: 5.5062838, y: 1.5636485, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 631f6d6c1b000de49af1f3d5ba3def00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -32
-  maxX: 33
 --- !u!4 &538856699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5393970259097929207, guid: 6261f9d31f16fb846b6320dc47031845, type: 3}
@@ -22106,15 +22091,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4442553476282342837, guid: 696a867f68264a64486d0c070ac2976c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.875
+      value: 5.506235
       objectReference: {fileID: 0}
     - target: {fileID: 4442553476282342837, guid: 696a867f68264a64486d0c070ac2976c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25234962
+      value: 1.3647959
       objectReference: {fileID: 0}
     - target: {fileID: 4442553476282342837, guid: 696a867f68264a64486d0c070ac2976c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.5
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4442553476282342837, guid: 696a867f68264a64486d0c070ac2976c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27832,20 +27817,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4442553476282342843, guid: 696a867f68264a64486d0c070ac2976c, type: 3}
   m_PrefabInstance: {fileID: 1487362713}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2136364025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136364022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 631f6d6c1b000de49af1f3d5ba3def00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -32
-  maxX: 33
 --- !u!114 &2136364026
 MonoBehaviour:
   m_ObjectHideFlags: 0
