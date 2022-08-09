@@ -22,7 +22,8 @@ public class MonsterController : MonoBehaviour
 
     private const string BIRD = "Bird";
     private const string CRATE = "Crate";
-   
+    private const string GROUND = "Ground";
+
 
     private void Awake()
     {
@@ -51,7 +52,7 @@ public class MonsterController : MonoBehaviour
     {
 
 
-        if (collision.gameObject.CompareTag(CRATE) || collision.gameObject.CompareTag(BIRD))
+        if (collision.gameObject.CompareTag(CRATE) || collision.gameObject.CompareTag(BIRD) || collision.gameObject.CompareTag(GROUND))
         {
 
             // currentHeath -= Random.Range(damageMin, damageMax);
