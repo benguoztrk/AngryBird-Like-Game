@@ -8,7 +8,7 @@ public class MonsterDOTween : MonoBehaviour
    
     void Start()
     {
-        transform.DOMoveY(3, 3f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        transform.DOMoveY(3,5f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
     }
 
    

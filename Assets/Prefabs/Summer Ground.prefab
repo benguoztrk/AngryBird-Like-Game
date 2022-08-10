@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3281834782740993177}
   - component: {fileID: 3281834782740993176}
-  - component: {fileID: 3281834782740993179}
+  - component: {fileID: 4527466735816157995}
   m_Layer: 0
   m_Name: Summer Ground
   m_TagString: Ground
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3281834782740993179
+--- !u!61 &4527466735816157995
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.062177658, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,7 +105,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
-  m_AutoTiling: 1
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 67.66637, y: 2}
   m_EdgeRadius: 0
