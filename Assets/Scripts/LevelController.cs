@@ -13,6 +13,7 @@ public class LevelController : MonoBehaviour
     public int numOfMonsters;
 
     public static LevelController instance;
+
     private void Awake()
     {
         if (instance == null)
